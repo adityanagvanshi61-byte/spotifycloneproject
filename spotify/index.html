@@ -3,27 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Spotify - Clone</title>
+    <title>Spotify Clone — Improved</title>
 
+    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="topbar">
       <div class="top-left">
-        <button class="icon-btn circle">
+        <button
+          class="icon-btn circle"
+          id="toggleSidebar"
+          aria-label="Toggle sidebar"
+        >
           <img
             class="spotify-logo"
             src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
             alt="logo"
           />
         </button>
-
-        <button class="icon-btn home">
+        <button class="icon-btn home" aria-label="Home">
           <i class="fa-solid fa-house"></i>
         </button>
       </div>
@@ -33,20 +35,24 @@
           <i class="fa-solid fa-magnifying-glass"></i>
           <input
             class="search-input"
+            id="globalSearch"
             type="text"
             placeholder="What do you want to play?"
+            aria-label="Search songs"
           />
         </div>
       </div>
 
       <div class="top-right">
         <button class="btn-outlined">Explore Premium</button>
-        <button class="icon-btn">
+        <button class="icon-btn" title="Install">
           <i class="fa-solid fa-download"></i>
-          <span class="nav-text">Install App</span>
+          <span class="nav-text">Install</span>
         </button>
-        <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
-        <button class="icon-btn">
+        <button class="icon-btn" title="Notifications">
+          <i class="fa-regular fa-bell"></i>
+        </button>
+        <button class="icon-btn" title="Friends">
           <i class="fa-solid fa-user-friends"></i>
         </button>
         <div class="profile-dot">A</div>
@@ -54,124 +60,31 @@
     </header>
 
     <div class="app">
-      <aside class="left">
+      <aside class="left" id="leftSidebar">
         <div class="library-top">
           <div class="library-title">Your Library</div>
-          <button class="create-btn">
+          <button class="create-btn" id="createBtn">
             <i class="fa-solid fa-plus"></i> Create
           </button>
         </div>
 
         <div class="library-tabs">
-          <button class="tab">Playlists</button>
-          <button class="tab">Artists</button>
-          <button class="tab">Albums</button>
+          <button class="tab active" data-tab="all">Playlists</button>
+          <button class="tab" data-tab="artists">Artists</button>
+          <button class="tab" data-tab="albums">Albums</button>
         </div>
 
         <div class="lib-search">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search your library" />
+          <input id="libSearch" type="text" placeholder="Search your library" />
           <div class="menu"><i class="fa-solid fa-bars"></i></div>
         </div>
 
-        <nav class="library-list">
-          <a class="lib-item Songsitems">
-            <div class="thumb liked"><i class="fa-solid fa-heart"></i></div>
-            <div class="meta">
-              <div class="title">Ishare Tere</div>
-              <div class="subtitle">Guru Randhawa</div>
-            </div>
-          </a>
-
-          <a class="lib-item Songsitems">
-            <img
-              class="thumb"
-              src="https://th.bing.com/th/id/OIP.dxb-aEppkQ2DamvnJakulgHaHa?w=108&h=108&c=1&bgcl=0ce6d5&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-              alt=""
-            />
-            <div class="meta">
-              <div class="title">Main Khiladi</div>
-              <div class="subtitle">Tanishk Bagschi</div>
-            </div>
-          </a>
-
-          <a class="lib-item Songsitems">
-            <img
-              class="thumb"
-              src="https://th.bing.com/th/id/OIP.C_ELo7BBKhBul3Mb0KcG2gHaEK?w=108&h=108&c=1&bgcl=4597a6&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-              alt=""
-            />
-            <div class="meta">
-              <div class="title">Dhundhala</div>
-              <div class="subtitle">Talwinder</div>
-            </div>
-          </a>
-
-          <a class="lib-item Songsitems">
-            <img
-              class="thumb"
-              src="https://th.bing.com/th/id/OIP.-zuXZ5mmrXeCfFXI_8j3HQHaEK?w=108&h=108&c=1&bgcl=28cd6a&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1%22"
-              alt=""
-            />
-            <div class="meta">
-              <div class="title">MASHA ULTRAFUNK</div>
-              <div class="subtitle"> Spotify</div>
-            </div>
-          </a>
-
-          <a class="lib-item Songsitems">
-            <img class="thumb"
-            src="https://th.bing.com/th/id/OIP.Cl_H7N4PFwaYAFWlVoaR7QHaHa?w=108&h=108&c=1&bgcl=965d7d&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-            alt="" />
-            <div class="meta">
-              <div class="title">Samjho Na</div>
-              <div class="subtitle">Aditya Rikhari</div>
-            </div>
-          </a>
-          <a class="lib-item Songsitems">
-            <img
-              class="thumb"
-              src="https://th.bing.com/th/id/OIP.18R2CFyBj9lcr3b46w2_FwHaEK?w=108&h=108&c=1&bgcl=1ee916&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-              alt=""
-            />
-            <div class="meta">
-              <div class="title">Jo Tere Sang</div>
-              <div class="subtitle">Kunal Khemu</div>
-            </div>
-          </a>
-          <a class="lib-item Songsitems">
-            <img
-              class="thumb"
-              src="https://th.bing.com/th/id/OIP.QirHSqH61zT0UNeF_1Y4-QHaEK?w=108&h=108&c=1&bgcl=51ebc6&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-              alt=""
-            />
-            <div class="meta">
-              <div class="title">First Kiss</div>
-              <div class="subtitle">Honey Singh</div>
-            </div>
-          </a>
-          <a class="lib-item Songsitems">
-            <img class="thumb"
-            src="https://th.bing.com/th/id/OIP.Ke7CXJjy-KvFvaortQ2y9AHaEK?w=108&h=108&c=1&bgcl=3c33f7&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-            alt="" />
-            <div class="meta">
-              <div class="title">Ishq Wala Love</div>
-              <div class="subtitle">Neeti Mohan</div>
-            </div>
-          </a>
-          <a class="lib-item Songsitems">
-            <img
-              class="thumb"
-              src="https://th.bing.com/th/id/OIP.Qi2Y71N7P0KZDHEpu_7UDwHaEK?w=108&h=108&c=1&bgcl=06c9c3&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-              alt=""
-            />
-            <div class="meta">
-              <div class="title">One Love</div>
-              <div class="subtitle">Shubh</div>
-            </div>
-          </a>
-       
-        </nav>
+        <nav
+          class="library-list"
+          id="libraryList"
+          aria-label="Library list"
+        ></nav>
       </aside>
 
       <main class="center">
@@ -184,173 +97,90 @@
         <section class="section">
           <div class="section-header">
             <h2>Editor's Pick</h2>
-            <a class="show-all">Show all</a>
+            <a class="show-all" href="#" id="showAll">Show all</a>
           </div>
-
-          <div class="horizontal-cards" aria-hidden="false">
-            <article class="card">
-              <img
-                src="https://www.bing.com/th/id/OIP.as9qlCk32IAyA6xr2jkSeAAAAA?w=170&h=211&c=8&rs=1&qlt=90&o=6&cb=ucfimg1&dpr=1.3&pid=3.1&rm=2&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">All Out Hindi 00s</div>
-              <div class="card-sub">Bollywood songs that ruled hearts</div>
-            </article>
-
-            <article class="card">
-              <img
-                src="https://th.bing.com/th/id/OIP.GqzpkJaBd5naGvnr_axirgAAAA?w=163&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">Bollywood & Chill</div>
-              <div class="card-sub">Sit back, and chill</div>
-            </article>
-
-            <article class="card">
-              <img
-              src="https://th.bing.com/th/id/OIP.YVXbJH2kV-vbsueJiY6zLwAAAA?w=108&h=108&c=1&bgcl=b8f411&r=0&o=7&cb=ucfimg1&dpr=1.3&pid=ImgRC&rm=3&ucfimg=1"
-              alt="" />
-              <div class="card-title">1AM Feels Hindi</div>
-              <div class="card-sub">Late night cool</div>
-            </article>
-
-            <article class="card">
-              <img
-                src="https://th.bing.com/th/id/OIP.Fx-Q5HMO0TbZR0XrE6KKJAHaHa?w=209&h=209&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">Trending Valentine's Hits</div>
-              <div class="card-sub">India's ultimate love playlist</div>
-            </article>
-
-            <article class="card">
-              <img
-                src="https://th.bing.com/th/id/OIP.KRQSM812ggLNFEJSsqgDHgHaHa?w=188&h=187&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">Relive the hits</div>
-              <div class="card-sub">Top tracks of the decade</div>
-            </article>
-          </div>
+          <div class="horizontal-cards" id="cards"></div>
         </section>
 
         <section class="section">
           <div class="section-header">
             <h2>Popular radio</h2>
-            <a class="show-all">Show all</a>
+            <a class="show-all" href="#">Show all</a>
           </div>
-
-          <div class="horizontal-cards radios">
-            <article class="radio-card">
-              <img
-                src="https://th.bing.com/th/id/OIP.H42OANByUPnHoFk-uP2SewAAAA?w=182&h=182&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">Arijit Singh</div>
-            </article>
-
-            <article class="radio-card">
-              <img
-                src="https://th.bing.com/th/id/OIP.UorJdY5WtCPw1CdCIBpXdgHaHa?w=155&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">Shreya Ghoshal</div>
-            </article>
-
-            <article class="radio-card">
-              <img
-                src="https://th.bing.com/th/id/OIP.Iz1KzC78gw4KQ-TkB7RvmwHaEK?w=295&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">Diljit Dosanjh</div>
-            </article>
-
-            <article class="radio-card">
-              <img
-                src="https://th.bing.com/th/id/OIP.X__MIxeSKgFZQ2vcwDAimwHaEK?w=316&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                alt=""
-              />
-              <div class="card-title">KK</div>
-            </article>
-          </div>
+          <div class="horizontal-cards radios" id="radios"></div>
         </section>
       </main>
 
-      <aside class="right">
+      <aside class="right" id="rightPanel">
         <div class="now-playing-preview">
-          <img class="big-album"
-          src="https://th.bing.com/th/id/OIF.E8eFAQ9B4ONFNpFkF2HnUg?w=324&h=182&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-          alt="album" />
+          <img class="big-album" id="songBanner" alt="Now playing" />
           <div class="now-meta">
-            <div id="Song-banner" class="song-title">
-              Chikiri Chikiri (From "Peddi") [TELUGU]
-            </div>
-            <div class="song-sub">A.R. Rahman, Mohit Chauhan, Balaji</div>
+            <div id="Song-banner" class="song-title">—</div>
+            <div class="song-sub" id="Song-artist">—</div>
           </div>
         </div>
 
         <div class="artist-box">
           <h3>About the artist</h3>
-          <img
-            class="artist-thumb"
-            src="https://th.bing.com/th/id/OIP.CUfX1Rknep0QlHJLO5HjQQHaEH?w=307&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-            alt="artist"
-          />
-          <p class="artist-desc">
-            A.R. Rahman is an Indian composer known for...
+          <img class="artist-thumb" id="artistThumb" alt="Artist" />
+          <p class="artist-desc" id="artistDesc">
+            Select a song to see artist details.
           </p>
         </div>
       </aside>
     </div>
 
-    <footer class="player">
+    <footer class="player" role="region" aria-label="Player controls">
       <div class="player-left">
-        <img id="PLAYERTHUMB"
-          class="player-thumb"
-          src="https://th.bing.com/th/id/OIF.E8eFAQ9B4ONFNpFkF2HnUg?w=324&h=182&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-          alt="photo"
-        />
+        <img id="PLAYERTHUMB" class="player-thumb" alt="track art" />
         <div class="player-meta">
-          <div class="p-title">Chikiri Chikiri (From "Peddi") [TELUGU]</div>
-          <div class="p-sub">A.R. Rahman, Mohit Chauhan</div>
+          <div class="p-title" id="pTitle"></div>
+          <div class="p-sub" id="pSub"></div>
         </div>
-        <button class="icon-btn like">
+        <button class="icon-btn like" id="likeBtn" title="Like">
           <i class="fa-regular fa-heart"></i>
         </button>
       </div>
 
       <div class="player-center">
         <div class="controls">
-          <button class="icon-btn"><i class="fa-solid fa-shuffle"></i></button>
-          <button class="icon-btn">
+          <button class="icon-btn" id="shuffleBtn" title="Shuffle">
+            <i class="fa-solid fa-shuffle"></i>
+          </button>
+          <button class="icon-btn" id="prevBtn" title="Previous">
             <i class="fa-solid fa-backward-step"></i>
           </button>
-          <button class="play-btn">
-            <i class="fa-solid fa-circle-play" id="masterPlay"></i>
+          <button class="play-btn" id="masterPlay" title="Play/Pause">
+            <i class="fa-solid fa-circle-play"></i>
           </button>
-          <button class="icon-btn">
+          <button class="icon-btn" id="nextBtn" title="Next">
             <i class="fa-solid fa-forward-step"></i>
           </button>
-          <button class="icon-btn"><i class="fa-solid fa-repeat"></i></button>
+          <button class="icon-btn" id="repeatBtn" title="Repeat">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
         </div>
 
         <div class="progress-row">
-          <span class="time"></span>
-          <div class="progress">
+          <span class="time" id="currentTime">0:00</span>
+          <div class="progress" id="progressWrap" aria-label="Seek bar">
             <div class="progress-bar" id="myProgressBar"></div>
           </div>
-          <span class="time"></span>
+          <span class="time" id="duration">0:00</span>
         </div>
       </div>
 
       <div class="player-right">
-        <button class="icon-btn"><i class="fa-solid fa-list"></i></button>
-        <button class="icon-btn">
+        <button class="icon-btn" id="queueBtn" title="Queue">
+          <i class="fa-solid fa-list"></i>
+        </button>
+        <button class="icon-btn" title="Volume">
           <i class="fa-solid fa-volume-high"></i>
         </button>
-        <input  id="vol" type="range" min="0" max="100" value="60" />
+        <input id="vol" type="range" min="0" max="100" value="60" />
       </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
